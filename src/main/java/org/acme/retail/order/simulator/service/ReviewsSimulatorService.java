@@ -15,6 +15,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 
 @ApplicationScoped
@@ -38,7 +39,7 @@ public class ReviewsSimulatorService {
         }
         
         createReviewsForCatalogue(catalogue, count);
-        return new JsonObject().put("result", "Generated " + count + " orders for catalogue" + catalogue);
+        return new JsonObject().put("result", "Generated " + count + " product reviews for catalogue:" + catalogue);
          
         /* if (productId != null) {
             createReviewsForProduct(catalogue, productId, count);            
@@ -76,7 +77,8 @@ public class ReviewsSimulatorService {
         review.setProduct(productDto);
         review.setRating(0);
         review.setReviewText(ReviewsGeneratorHelper.fetchRandomReview());
-        review.setTimestamp(new Timestamp(0).getTime());
+        review.setTimestamp(Instant.now().toEpochMilli());
+        
         
         return review;
         
