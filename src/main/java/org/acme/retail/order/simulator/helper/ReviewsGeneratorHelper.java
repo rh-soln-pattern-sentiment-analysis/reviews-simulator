@@ -57,8 +57,8 @@ public class ReviewsGeneratorHelper {
         }
         List<String> user = users.get(new Random().nextInt(users.size()));
         UserDto userDto = new UserDto();
-        userDto.setName(user.get(0));
-        userDto.setCustomer_id(user.get(1));
+        userDto.setName(user.get(1));
+        userDto.setCustomer_id(user.get(0));
         userDto.setBrowser("Chrome");
         userDto.setRegion("World");
         return userDto;
